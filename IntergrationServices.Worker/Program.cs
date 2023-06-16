@@ -1,4 +1,4 @@
-using IntergrationServices.Worker;
+using IntegrationServices.Worker;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>

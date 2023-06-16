@@ -1,4 +1,4 @@
-namespace IntergrationServices.Worker
+namespace IntegrationServices.Worker
 {
     public class Worker : BackgroundService
     {
