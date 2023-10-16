@@ -80,18 +80,14 @@ namespace IntegrationServices.Infrastructure
                                         auditEntry.NewValues[propertyName] = newValue;
                                     }
                                 }
-                                catch (Exception e)
-                                {
-                                    ;
-                                }
-
+                                catch (Exception e){}
                             break;
                     }
                 }
             }
 
-            //foreach (var auditEntry in auditEntries.Where(_ => !_.HasTemporaryProperties))
-            //    Audits.Add(auditEntry);
+            foreach (var auditEntry in auditEntries.Where(_ => !_.HasTemporaryProperties))
+                Audits.Add(auditEntry);
 
             return auditEntries.Where(_ => _.HasTemporaryProperties).ToList();
         }
@@ -109,7 +105,7 @@ namespace IntegrationServices.Infrastructure
                     else
                         auditEntry.NewValues[prop.Metadata.Name] = prop.CurrentValue;
 
-                //Audits.Add(auditEntry);
+                Audits.Add(auditEntry);
             }
 
             return await base.SaveChangesAsync();
